@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Configuration Settings</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Unit ID</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string>ios_watchtower</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>Key</key>
+			<string>user_id_preference</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Agency</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string>wtagency</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>Key</key>
+			<string>sender_id_preference</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Resource Type</string>
+			<key>Key</key>
+			<string>resource_type_preference</string>
+			<key>DefaultValue</key>
+			<string>ATOM.GRDTRK.EQT.GRDVEH.CVLVEH.EM.LAWENFORCEMENT</string>
+			<key>Values</key>
+			<array>
+				<string>ATOM.GRDTRK.EQT.GRDVEH.CVLVEH.EM.LAWENFORCEMENT</string>
+				<string>ATOM.AIRTRK.CVL.ROT</string>
+				<string>ATOM.AIRTRK.CVL.FIXD</string>
+				<string>ATOM.GRDTRK.EQT.GRDVEH.CVLVEH.EM.EMS.AMBULANCE</string>
+				<string>ATOM.GRDTRK.EQT.GRDVEH.CVLVEH.EM.FIRE.TRUCK</string>
+			</array>
+			<key>Titles</key>
+			<array>
+				<string>Law Enforcement</string>
+				<string>Helicopter</string>
+				<string>Fixed Wing</string>
+				<string>Ambulance</string>
+				<string>Fire Truck</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>KeyboardType</key>
+			<string>URL</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>Key</key>
+			<string>server_url_preference</string>
+			<key>DefaultValue</key>
+			<string>FRESH_DE_POST_URL</string>
+			<key>Title</key>
+			<string>Server URL</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>MaximumValue</key>
+			<integer>60</integer>
+			<key>MinimumValue</key>
+			<integer>0</integer>
+			<key>Title</key>
+			<string>Update interval  (sec)</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+			<key>DefaultValue</key>
+			<integer>5</integer>
+			<key>Key</key>
+			<string>update_interval_preference</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>KeyboardType</key>
+			<string>URL</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string>MAP_SERVER_URL</string>
+			<key>Title</key>
+			<string>Map Server URL</string>
+			<key>Key</key>
+			<string>map_server_url_preference</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>AutocapitalizationType</key>
+			<string>AllCharacters</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>Title</key>
+			<string>Hexoskin ID</string>
+			<key>Key</key>
+			<string>hexoskin_id_preference</string>
+		</dict>
+	</array>
+</dict>
+</plist>

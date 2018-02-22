@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/nav_map"
+        android:icon="@drawable/ic_map"
+        android:title="Map"
+        android:checkable="false" />
+
+    <item
+        android:id="@+id/nav_location"
+        android:icon="@drawable/ic_location"
+        android:title="Location"
+        android:checkable="false" />
+
+    <item
+       android:id="@+id/nav_sensors"
+       android:icon="@drawable/ic_location"
+       android:title="Sensors"
+       android:checkable="false" />
+
+  </group>
+
+  <item android:title="Communicate"
+      android:visible="false">
+    <menu>
+      <item
+          android:id="@+id/nav_share"
+          android:icon="@drawable/ic_menu_share"
+          android:title="Share" />
+      <item
+          android:id="@+id/nav_send"
+          android:icon="@drawable/ic_menu_send"
+          android:title="Send" />
+    </menu>
+  </item>
+
+</menu>

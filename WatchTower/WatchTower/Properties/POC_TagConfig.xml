@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<SensorTag>
+	<Tag value="0x01"/>
+	<Type value="Heart Rate"/>
+	<Size value="1"/> 
+</SensorTag>
+<SensorTag>
+	<Tag value=""/>
+	<Type value=""/>
+	<Size value=""/>
+</SensorTag>

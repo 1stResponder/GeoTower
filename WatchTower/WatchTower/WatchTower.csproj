@@ -1,0 +1,149 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{1CC8B6A0-26D7-41F3-B795-EA7C7D244E05}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WatchTower</RootNamespace>
+    <AssemblyName>WatchTower</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CRS.cs" />
+    <Compile Include="CRSProperties.cs" />
+    <Compile Include="HTTPSender.cs" />
+    <Compile Include="Feature.cs" />
+    <Compile Include="FeatureCollection.cs" />
+    <Compile Include="Geometry.cs" />
+    <Compile Include="Parser\HexoskinParser.cs" />
+    <Compile Include="Properties.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="POC_TagConstants.cs" />
+    <Compile Include="POC_Constants.cs" />
+    <Compile Include="Parser\POCParser.cs" />
+    <Compile Include="Parser\SensorParser.cs" />
+    <Compile Include="SensorHandler.cs" />
+    <Compile Include="SensorConfig.cs" />
+    <Compile Include="BluetoothConstants.cs" />
+    <Compile Include="Parser\ ZephyrHeartRateParser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Plugin.Geolocator, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.3.0.4\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Geolocator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Geolocator.Abstractions, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.3.0.4\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Geolocator.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLCrypto">
+      <HintPath>..\..\packages\PCLCrypto.2.0.147\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\PCLCrypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Auth">
+      <HintPath>..\..\packages\Xamarin.Auth.1.4.1.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+XamarinIOS10\Xamarin.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Validation">
+      <HintPath>..\..\packages\Validation.2.4.15\lib\portable-net45+win8+wp8+wpa81\Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.EDXL.Shared">
+      <HintPath>..\..\packages\EMS.EDXL.Shared.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.EDXL.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.EDXL.CIQ">
+      <HintPath>..\..\packages\EMS.EDXL.CIQ.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.EDXL.CIQ.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.EDXL.CT">
+      <HintPath>..\..\packages\EMS.EDXL.CT.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.EDXL.CT.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.EDXL.EXT">
+      <HintPath>..\..\packages\EMS.EDXL.EXT.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.EDXL.EXT.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.EDXL.GSF">
+      <HintPath>..\..\packages\EMS.EDXL.GSF.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.EDXL.GSF.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.EDXL.Utilities">
+      <HintPath>..\..\packages\EMS.EDXL.Utilities.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.EDXL.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.EDXL.SitRep">
+      <HintPath>..\..\packages\EMS.EDXL.SitRep.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.EDXL.SitRep.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.EDXL.DE">
+      <HintPath>..\..\packages\EMS.EDXL.DE.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.EDXL.DE.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.NIEM.NIEMCommon">
+      <HintPath>..\..\packages\EMS.NIEM.NIEMCommon.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.NIEM.NIEMCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.NIEM.Incident">
+      <HintPath>..\..\packages\EMS.NIEM.Incident.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.NIEM.Incident.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.NIEM.Infrastructure">
+      <HintPath>..\..\packages\EMS.NIEM.Infrastructure.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.NIEM.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.NIEM.Resource">
+      <HintPath>..\..\packages\EMS.NIEM.Resource.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.NIEM.Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.NIEM.MutualAid">
+      <HintPath>..\..\packages\EMS.NIEM.MutualAid.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.NIEM.MutualAid.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.NIEM.EMLC">
+      <HintPath>..\..\packages\EMS.NIEM.EMLC.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.NIEM.EMLC.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.NIEM.Sensor">
+      <HintPath>..\..\packages\EMS.NIEM.Sensor.1.0.117\lib\portable-net45+wp80+win8+wpa81\EMS.NIEM.Sensor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Poc_Constants.xml" />
+    <EmbeddedResource Include="SupportedDeviceList.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+</Project>

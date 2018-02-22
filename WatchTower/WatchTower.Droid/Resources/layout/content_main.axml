@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="50dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ardentmc.watchtower"
+    tools:showIn="@layout/app_bar_main">
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        class="com.google.android.gms.maps.MapFragment" />
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/lu_switch"
+        android:paddingTop="5dp"
+        android:splitTrack="true"
+        android:switchMinWidth="20dp"
+        android:layout_below="@+id/textView2"
+        android:showText="true" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:baselineAlignBottom="@+id/errorMain"
+        android:layout_above="@+id/errorMain"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/colorPrimaryDark"
+        android:tint="@android:color/white" />
+    <TextView
+        android:id="@+id/errorMain"
+        android:visibility="invisible"
+        android:text="Unable to get active event data"
+        android:layout_width="match_parent"
+        android:focusable="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignWithParentIfMissing="true"
+        style="?android:attr/textAppearanceSmall"
+        android:backgroundTint="@android:color/background_dark"
+        android:backgroundTintMode="multiply"
+        android:background="@android:color/background_light"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_height="40dp" />
+</RelativeLayout>

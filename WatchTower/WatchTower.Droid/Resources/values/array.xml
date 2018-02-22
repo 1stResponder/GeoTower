@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string-array name="typeentries">
+    <item>Law Enforcement</item>
+    <item>Helicopter</item>
+    <item>Fixed Wing</item>
+    <item>Ambulance</item>
+    <item>Fire</item>
+  </string-array>
+  <string-array name="typevalues">
+    <item>ATOM.GRDTRK.EQT.GRDVEH.CVLVEH.EM.LAWENFORCEMENT</item>
+    <item>ATOM.AIRTRK.CVL.ROT</item>
+    <item>ATOM.AIRTRK.CVL.FIXD</item>
+    <item>ATOM.GRDTRK.EQT.GRDVEH.CVLVEH.EM.EMS.AMBULANCE</item>
+    <item>ATOM.GRDTRK.EQT.GRDVEH.CVLVEH.EM.FIRE.ENGINE</item>
+  </string-array>
+	<string-array name="scaleEntries">
+	   <item>1</item>
+       <item>2</item>
+	   <item>3</item>
+       <item>4</item>
+	   <item>5</item>
+	</string-array>
+    <string-array name="scaleValues">
+       <item>4</item>
+       <item>3.5</item>
+       <item>3</item>
+       <item>2.5</item>
+       <item>2</item>
+    </string-array>
+    <string-array name="prefKeys">
+       <item>send_id</item>
+       <item>distribution_id</item>
+       <item>resource_type</item>
+       <item>post_url</item>
+       <item>post_interval</item>
+       <item>icon_scale</item>
+       <item>mapserver_url</item>
+    </string-array>
+</resources>
+
+

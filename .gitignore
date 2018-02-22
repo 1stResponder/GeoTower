@@ -1,0 +1,9 @@
+.vs/
+/**/obj/
+/**/bin/
+packages/
+*.csproj.user
+UpgradeLog2.htm
+UpgradeLog3.htm
+*.userprefs
+*.csproj.bak

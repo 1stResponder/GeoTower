@@ -1,0 +1,895 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Xamarin.Build.Download.0.4.4\build\Xamarin.Build.Download.props" Condition="Exists('..\..\packages\Xamarin.Build.Download.0.4.4\build\Xamarin.Build.Download.props')" />
+  <Import Project="..\..\packages\Xamarin.Build.Download.0.4.2\build\Xamarin.Build.Download.props" Condition="Exists('..\..\packages\Xamarin.Build.Download.0.4.2\build\Xamarin.Build.Download.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{55B1872C-8E58-4421-BC18-C58AA2E372A7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WatchTower.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>WatchTower.iOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchProfiling>true</MtouchProfiling>
+    <IOSDebugOverWiFi>False</IOSDebugOverWiFi>
+    <IOSDebuggerPort>10000</IOSDebuggerPort>
+    <CodesignProvision></CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <PlatformTarget>anycpu</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType></DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7s, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>False</MtouchDebug>
+    <MtouchProfiling>False</MtouchProfiling>
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchNoSymbolStrip>False</MtouchNoSymbolStrip>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchEnableBitcode>False</MtouchEnableBitcode>
+    <OptimizePNGs>True</OptimizePNGs>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchFloat32>true</MtouchFloat32>
+    <BuildIpa>True</BuildIpa>
+    <IpaIncludeArtwork>true</IpaIncludeArtwork>
+    <CodesignProvision></CodesignProvision>
+    <IpaMetadata>Distro.plist</IpaMetadata>
+    <IpaPackageName>com.ardentmc.watchtower</IpaPackageName>
+<DeviceSpecificBuild>true</DeviceSpecificBuild>
+<MtouchExtraArgs>--linkskip=System.Xml.Linq</MtouchExtraArgs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType></DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>SdkOnly</MtouchLink>
+<MtouchFloat32>true</MtouchFloat32>
+<CodesignKey>iPhone Developer</CodesignKey>
+<DeviceSpecificBuild>true</DeviceSpecificBuild>
+<MtouchExtraArgs>--linkskip=System.Xml.Linq</MtouchExtraArgs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchProfiling>false</MtouchProfiling>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignProvision>
+    </CodesignProvision>
+    <MtouchExtraArgs>--linkskip=System.Xml.Linq</MtouchExtraArgs>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Maps">
+      <HintPath>..\..\packages\Xamarin.Google.iOS.Maps.2.1.0.1\lib\Xamarin.iOS10\Google.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.EDXL.Shared">
+      <HintPath>..\..\packages\EMS.EDXL.Shared.1.0.117\lib\netstandard1.6.1\EMS.EDXL.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.EDXL.CIQ">
+      <HintPath>..\..\packages\EMS.EDXL.CIQ.1.0.117\lib\netstandard1.6.1\EMS.EDXL.CIQ.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.NIEM.NIEMCommon">
+      <HintPath>..\..\packages\EMS.NIEM.NIEMCommon.1.0.117\lib\netstandard1.6.1\EMS.NIEM.NIEMCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="EMS.NIEM.Sensor">
+      <HintPath>..\..\packages\EMS.NIEM.Sensor.1.0.117\lib\netstandard1.6.1\EMS.NIEM.Sensor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WatchTower\WatchTower.csproj">
+      <Name>WatchTower</Name>
+      <Project>{1CC8B6A0-26D7-41F3-B795-EA7C7D244E05}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\app-icon@120x120-2.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\app-icon@152x152.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\app-icon@167x167.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\app-icon@180x180-2.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\app-icon@29x29.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\app-icon@40x40-1.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\app-icon@58x58.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\app-icon@76x76.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\app-icon@80x80.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\app-icon@87x87.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%403x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-76.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-76%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%403x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-40.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-40%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-40%403x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\background.imageset\bg.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\background.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\bg_location.imageset\bg_location.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\bg_location.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\bg_report.imageset\bg.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\bg_report.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-568h@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\location.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\location.imageset\location.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\location.imageset\Location@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\location.imageset\Location@3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\map.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\map.imageset\map.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\map.imageset\Map@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\map.imageset\Map@3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\reports.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\reports.imageset\reports.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\reports.imageset\Reports@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\reports.imageset\Reports@3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\settings.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\settings.imageset\Settings.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\settings.imageset\Settings@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\settings.imageset\Settings@3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\stripes.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\stripes.imageset\stripes.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM.imageset\ATOM.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_AIRTRK_CVL_FIXD.imageset\ATOM_AIRTRK_CVL_FIXD.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_AIRTRK_CVL_FIXD.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_AIRTRK_CVL_ROT_EM.imageset\ATOM_AIRTRK_CVL_ROT_EM.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_AIRTRK_CVL_ROT_EM.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK._NF_CVL_EM_FAC_POLICE.imageset\ATOM_GRDTRK._NF_CVL_EM_FAC_POLICE.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK._NF_CVL_EM_FAC_POLICE.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_COMMUNICATIONS.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_COMMUNICATIONS.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_COMMUNICATIONS.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS_AMBULANCE.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS_AMBULANCE.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS_AMBULANCE.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS_BICYCLETEAM.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS_BICYCLETEAM.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS_BICYCLETEAM.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS_SQUAD.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS_SQUAD.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_EMS_SQUAD.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_AIRSUPPORT.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_AIRSUPPORT.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_AIRSUPPORT.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_AIRSUPPORT_HELICOPTERTENDER.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_AIRSUPPORT_HELICOPTERTENDER.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_AIRSUPPORT_HELICOPTERTENDER.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_BRUSHFIRE.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_BRUSHFIRE.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_BRUSHFIRE.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_BRUSHFIRE_PATROL.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_BRUSHFIRE_PATROL.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_BRUSHFIRE_PATROL.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_CHIEF.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_CHIEF.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_CHIEF.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_COMMANDPOST.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_COMMANDPOST.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_COMMANDPOST.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_ENGINE.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_ENGINE.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_ENGINE.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_FOAM.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_FOAM.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_FOAM.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_FOAM_TENDER.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_FOAM_TENDER.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_FOAM_TENDER.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_HAZMAT_TENDER.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_HAZMAT_TENDER.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_HAZMAT_TENDER.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_REHAB.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_REHAB.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_REHAB.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_RESCUE_AIRCRAFTRESCUE.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_RESCUE_AIRCRAFTRESCUE.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_RESCUE_AIRCRAFTRESCUE.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_SQUAD.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_SQUAD.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_SQUAD.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_TRUCK.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_TRUCK.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_TRUCK.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_TUNNEL.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_TUNNEL.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_TUNNEL.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_UTILITY_FOAM.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_UTILITY_FOAM.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_UTILITY_FOAM.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_WATER.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_WATER.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_FIRE_WATER.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_LAWENFORCEMENT.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_LAWENFORCEMENT.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_LAWENFORCEMENT.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_BUS.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_BUS.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_BUS.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_DOZER.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_DOZER.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_DOZER.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_DOZER_TENDER.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_DOZER_TENDER.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_DOZER_TENDER.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_FOODSERVICE.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_FOODSERVICE.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_FOODSERVICE.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_FUELSERVICE_DIESEL.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_FUELSERVICE_DIESEL.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_FUELSERVICE_DIESEL.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_LIGHTING.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_LIGHTING.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_LIGHTING.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_LOADER.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_LOADER.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_LOADER.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_LOADER_WHEELED_SKID.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_LOADER_WHEELED_SKID.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_LOADER_WHEELED_SKID.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_TRUCK_DUMP.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_TRUCK_DUMP.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_TRUCK_DUMP.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_TRUCK_FLATBED.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_TRUCK_FLATBED.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_PUBLICWORKS_TRUCK_FLATBED.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_UTILITIES_WATER.imageset\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_UTILITIES_WATER.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_EQT_GRDVEH_CVLVEH_EM_UTILITIES_WATER.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL.EM_UTILITIES_COMMS.imageset\ATOM_GRDTRK_INF_CVL.EM_UTILITIES_COMMS.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL.EM_UTILITIES_COMMS.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL_EM_FAC_EMS.imageset\ATOM_GRDTRK_INF_CVL_EM_FAC_EMS.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL_EM_FAC_EMS.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL_EM_FAC_ICP.imageset\ATOM_GRDTRK_INF_CVL_EM_FAC_ICP.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL_EM_FAC_ICP.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL_EM_MEDICAL_HOSPITAL.imageset\ATOM_GRDTRK_INF_CVL_EM_MEDICAL_HOSPITAL.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL_EM_MEDICAL_HOSPITAL.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL_EM_TRANS.imageset\ATOM_GRDTRK_INF_CVL_EM_TRANS.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL_EM_TRANS.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL_EM_UTILITIES_COMMS.imageset\ATOM_GRDTRK_INF_CVL_EM_UTILITIES_COMMS.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_INF_CVL_EM_UTILITIES_COMMS.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_NF_CVL_EM_FAC_POLICE.imageset\ATOM_GRDTRK_NF_CVL_EM_FAC_POLICE.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_NF_CVL_EM_FAC_POLICE.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_UNT_EM_FIRE_RESCUE_SWIFTWATER_COORDINATOR.imageset\ATOM_GRDTRK_UNT_EM_FIRE_RESCUE_SWIFTWATER_COORDINATOR.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_UNT_EM_FIRE_RESCUE_SWIFTWATER_COORDINATOR.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_UNT_EM_OPERATIONS_FIREFIGHTING_DECONTAMINATION.imageset\ATOM_GRDTRK_UNT_EM_OPERATIONS_FIREFIGHTING_DECONTAMINATION.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_GRDTRK_UNT_EM_OPERATIONS_FIREFIGHTING_DECONTAMINATION.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_SSUF_NMIL_EM_FIRE.imageset\ATOM_SSUF_NMIL_EM_FIRE.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_SSUF_NMIL_EM_FIRE.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS.imageset\BITS.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH.imageset\BITS_REPORT_EM_DISPATCH.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_911H.imageset\BITS_REPORT_EM_DISPATCH_911H.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_911H.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_911OPN.imageset\BITS_REPORT_EM_DISPATCH_911OPN.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_911OPN.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE.imageset\BITS_REPORT_EM_DISPATCH_FIRE.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_EXPLOS.imageset\BITS_REPORT_EM_DISPATCH_FIRE_EXPLOS.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_EXPLOS.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_EXPLOS_BOMB.imageset\BITS_REPORT_EM_DISPATCH_FIRE_EXPLOS_BOMB.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_EXPLOS_BOMB.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_FIRE.imageset\BITS_REPORT_EM_DISPATCH_FIRE_FIRE.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_FIRE.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_FUNK.imageset\BITS_REPORT_EM_DISPATCH_FIRE_FUNK.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_FUNK.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_CBRE_BIO.imageset\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_CBRE_BIO.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_CBRE_BIO.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_CBRE_CHEMICAL.imageset\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_CBRE_CHEMICAL.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_CBRE_CHEMICAL.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_CBRE_RADIAT.imageset\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_CBRE_RADIAT.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_CBRE_RADIAT.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_WIRES.imageset\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_WIRES.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_HAZARD_WIRES.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_MAJORINC.imageset\BITS_REPORT_EM_DISPATCH_FIRE_MAJORINC.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_MAJORINC.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_MAYDAY.imageset\BITS_REPORT_EM_DISPATCH_FIRE_MAYDAY.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_FIRE_MAYDAY.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL.imageset\BITS_REPORT_EM_DISPATCH_MEDICAL.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_ASSAULT_SEXUAL.imageset\BITS_REPORT_EM_DISPATCH_MEDICAL_ASSAULT_SEXUAL.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_ASSAULT_SEXUAL.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_DEATH.imageset\BITS_REPORT_EM_DISPATCH_MEDICAL_DEATH.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_DEATH.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_SICK_PANDEMIC.imageset\BITS_REPORT_EM_DISPATCH_MEDICAL_SICK_PANDEMIC.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_SICK_PANDEMIC.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_TRAUMA_MVA.imageset\BITS_REPORT_EM_DISPATCH_MEDICAL_TRAUMA_MVA.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_TRAUMA_MVA.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_TRAUMA_MVA_PED.imageset\BITS_REPORT_EM_DISPATCH_MEDICAL_TRAUMA_MVA_PED.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_TRAUMA_MVA_PED.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_TRAUMA_SHOOT.imageset\BITS_REPORT_EM_DISPATCH_MEDICAL_TRAUMA_SHOOT.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_MEDICAL_TRAUMA_SHOOT.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_ABDUCTION.imageset\BITS_REPORT_EM_DISPATCH_POLICE_ABDUCTION.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_ABDUCTION.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_BURGLARY.imageset\BITS_REPORT_EM_DISPATCH_POLICE_BURGLARY.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_BURGLARY.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_CIVDIS.imageset\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_CIVDIS.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_CIVDIS.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_FIGHT.imageset\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_FIGHT.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_FIGHT.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_PERSUSP.imageset\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_PERSUSP.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_PERSUSP.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_THAZ.imageset\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_THAZ.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_THAZ.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_THREATS.imageset\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_THREATS.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_THREATS.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_VEHICLE_VEHSTLN.imageset\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_VEHICLE_VEHSTLN.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_VEHICLE_VEHSTLN.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_VEHICLE_VEHSUSP.imageset\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_VEHICLE_VEHSUSP.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CIVIL_VEHICLE_VEHSUSP.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_ROBBERY.imageset\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_ROBBERY.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_ROBBERY.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_SHOOT.imageset\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_SHOOT.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_SHOOT.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_SHOPLIFT.imageset\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_SHOPLIFT.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_SHOPLIFT.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_WEAPON.imageset\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_WEAPON.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_CRIME_WEAPON.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_DEATHNTF.imageset\BITS_REPORT_EM_DISPATCH_POLICE_DEATHNTF.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\BITS_REPORT_EM_DISPATCH_POLICE_DEATHNTF.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\SENSOR_OBSERVATION.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\SENSOR_OBSERVATION.imageset\SENSOR_OBSERVATION.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_AIRTRK_CVL_ROT.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Media.xcassets\ATOM_AIRTRK_CVL_ROT.imageset\ATOM_AIRTRK_CVL_ROT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="Resources\ITunesArtwork" />
+    <ITunesArtwork Include="Resources\ITunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="MapViewController.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <InterfaceDefinition Include="LocationViewController.xib" />
+    <None Include="packages.config" />
+    <InterfaceDefinition Include="ReportsViewController.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LocationManager.cs" />
+    <Compile Include="LocationUpdatedEventArgs.cs" />
+    <Compile Include="LocationViewController.cs" />
+    <Compile Include="LocationViewController.designer.cs">
+      <DependentUpon>LocationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ReportsViewController.cs" />
+    <Compile Include="ReportsViewController.designer.cs">
+      <DependentUpon>ReportsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapViewController.cs" />
+    <Compile Include="MapViewController.designer.cs">
+      <DependentUpon>MapViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WatchTowerSettings.cs" />
+    <Compile Include="SingletonManager.cs" />
+    <Compile Include="LocationTracker.cs" />
+    <Compile Include="BackgroundWorkerWrapper.cs" />
+    <Compile Include="DelegateDefinitions.cs" />
+    <Compile Include="MapIconManager.cs" />
+    <Compile Include="BluetoothSensorMonitor.cs" />
+    <Compile Include="BT_TableViewSource.cs" />
+    <Compile Include="HeartRateMonitor_BTClassic.cs" />
+    <Compile Include="BluetoothSensorManager.cs" />
+    <Compile Include="BluetoothIdentifiers.cs" />
+    <Compile Include="BluetoothSensorViewController.cs" />
+    <Compile Include="BluetoothSensorViewController.designer.cs">
+      <DependentUpon>BluetoothSensorViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SensorCollectionViewController.cs" />
+    <Compile Include="BT_SensorCollectionViewSource.cs" />
+    <Compile Include="BluetoothPairedViewController.cs" />
+    <Compile Include="BluetoothPairedViewController.designer.cs">
+      <DependentUpon>BluetoothPairedViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BluetoothSensorEvents.cs" />
+    <Compile Include="HexoskinManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Settings.bundle\Root.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="googleiosmaps">
+      <Version>2.1.0.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Media.xcassets\ATOM_AIRTRK_CVL_ROT.imageset\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\Xamarin.Google.iOS.Maps.2.1.0\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('..\..\packages\Xamarin.Google.iOS.Maps.2.1.0\build\Xamarin.Google.iOS.Maps.targets')" />
+  <Import Project="..\..\packages\Xamarin.Build.Download.0.4.2\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\packages\Xamarin.Build.Download.0.4.2\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\..\packages\Xamarin.Build.Download.0.4.4\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\packages\Xamarin.Build.Download.0.4.4\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\..\packages\Xamarin.Google.iOS.Maps.2.1.0.1\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('..\..\packages\Xamarin.Google.iOS.Maps.2.1.0.1\build\Xamarin.Google.iOS.Maps.targets')" />
+</Project>

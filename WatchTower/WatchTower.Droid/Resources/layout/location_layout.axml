@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="20dp"
+    android:gravity="fill_vertical"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100"
+        android:orientation="horizontal">
+        <TextView
+            android:text="@string/location_header"
+            android:textSize="@dimen/abc_text_size_headline_material"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="80"
+            android:textColor="@color/colorPrimaryDark"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginTop="20dp" />
+        <View
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:theme="@style/filler_view_style"
+            android:layout_weight="@string/view_weight" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="30dp"
+        android:weightSum="100"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/lastUpdate_title"
+            android:text="@string/lastUpdate_header"
+            android:textSize="@dimen/abc_text_size_small_material"
+            android:textColor="#44484f"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="35" />
+        <TextView
+            android:id="@+id/last_location"
+            android:text="@string/def_value"
+            android:textSize="@dimen/abc_text_size_small_material"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="60" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/linear_layout_location_style"
+        android:weightSum="100"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/lat_title"
+            android:text="@string/lat_header"
+            android:theme="@style/location_header_item_style"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="@string/header_weight" />
+        <View
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:theme="@style/filler_view_style"
+            android:layout_weight="@string/view_weight" />
+        <TextView
+            android:id="@+id/lat"
+            android:text="@string/def_value"
+            android:theme="@style/location_value_style"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="@string/value_weight" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/linear_layout_location_style"
+        android:weightSum="100"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/lon_title"
+            android:text="@string/lon_header"
+            android:theme="@style/location_header_item_style"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="@string/header_weight" />
+        <View
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:theme="@style/filler_view_style"
+            android:layout_weight="@string/view_weight" />
+        <TextView
+            android:id="@+id/longx"
+            android:text="@string/def_value"
+            android:theme="@style/location_value_style"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="@string/value_weight" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/linear_layout_location_style"
+        android:weightSum="100"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/alt_title"
+            android:text="@string/alt_header"
+            android:theme="@style/location_header_item_style"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="@string/header_weight" />
+        <View
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:theme="@style/filler_view_style"
+            android:layout_weight="@string/view_weight" />
+        <TextView
+            android:id="@+id/alt"
+            android:text="@string/def_value"
+            android:theme="@style/location_value_style"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="@string/value_weight" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/linear_layout_location_style"
+        android:weightSum="100"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/acc_title"
+            android:text="@string/acc_header"
+            android:theme="@style/location_header_item_style"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="@string/header_weight" />
+        <View
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:theme="@style/filler_view_style"
+            android:layout_weight="@string/view_weight" />
+        <TextView
+            android:id="@+id/acc"
+            android:text="@string/def_value"
+            android:theme="@style/location_value_style"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="@string/value_weight" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/linear_layout_location_style"
+        android:weightSum="100"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/lastPost_title"
+            android:text="@string/lastPost_header"
+            android:theme="@style/location_header_item_style"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="@string/header_weight" />
+        <View
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:theme="@style/filler_view_style"
+            android:layout_weight="@string/view_weight" />
+        <TextView
+            android:id="@+id/last_sent_time"
+            android:text="@string/def_value"
+            android:theme="@style/location_value_style"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="@string/value_weight" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/linear_layout_location_style"
+        android:weightSum="100"
+        android:orientation="horizontal">
+        <View
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:theme="@style/filler_view_style"
+            android:layout_weight="40" />
+        <TextView
+            android:id="@+id/last_sent_date"
+            android:text=""
+            android:theme="@style/location_value_style"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="60" />
+    </LinearLayout>
+</LinearLayout>
